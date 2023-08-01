@@ -1,7 +1,6 @@
 "use client"
 import './globals.css'
 import type { Metadata } from 'next'
-import { ThemeProvider } from "@material-tailwind/react";
 import { ConfigProvider } from "antd";
 import { Poppins } from "next/font/google";
 
@@ -26,11 +25,9 @@ export default function RootLayout({
       },
     }}
   >
-    <ThemeProvider>
     <html lang="en">
       <body className={poppins.className}>{children}</body>
     </html>
-    </ThemeProvider>
     </ConfigProvider>
   )
 }

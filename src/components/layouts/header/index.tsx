@@ -18,7 +18,7 @@ export default function Header() {
       {hamburger && (
         <div className=" md:hidden absolute w-screen h-screen backdrop-blur-md bg-white/30 z-10"></div>
       )}
-      <div className={`w-full sticky top-0 z-20 bg-white md:h-16 `}>
+      <div className={`w-full sticky top-0 z-20 bg-white shadow md:h-16 `}>
         <div className=" bg-white flex items-center px-4 w-full backdrop-blur-md md:hidden h-14">
           <p className=" font-semibold text-xl">LOGO</p>
           <Hamburger hamburger={hamburger} setHamburger={setHamburger} />

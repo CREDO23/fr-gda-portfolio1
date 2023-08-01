@@ -1,7 +1,7 @@
 import Header from "./header";
 import Footer from "./footer";
 
-export default function Layout({ children }) {
+export default function Layout({ children } : {children: JSX.Element}) {
   return (
     <div
       className={` overflow-auto no-scrollbar h-screen  items-center justify-center  w-screen  gap-5`}

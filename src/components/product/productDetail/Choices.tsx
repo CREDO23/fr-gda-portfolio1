@@ -70,7 +70,7 @@ export default function ProductChoices({data}: {data : IChoice[]}) {
         {choices.filter(el=> el.label != "size" && el.label != "colors")
           .length &&
           choices
-            .filter((el, key) => el.label != "size" && el.label != "colors")
+            .filter((el, key) => el.label != "Size" && el.label != "Colors")
             .map((ch, key) => {
 
                 return (

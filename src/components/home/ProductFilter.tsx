@@ -2,7 +2,7 @@ import { FaFilter } from "react-icons/fa";
 import { Checkbox, Slider } from "antd";
 
 export default function ProductFilter() {
-  const slideFormater = (value) => `${value}$`;
+  const slideFormater = (value : number | undefined) => `${value}$`;
 
   const SliderMarks = {
     0: {

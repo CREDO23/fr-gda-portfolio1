@@ -1,47 +1,38 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Typography,
-  Avatar,
-} from "@material-tailwind/react";
 import { Rate } from "antd";
+import Image from "next/image";
 
 export default function ReviewCard({
-  name,
-  job,
+  name = "",
+  job = "",
   rate,
-  avatarUrl,
-  review,
+  avatarUrl = "",
+  review = "",
 }: IReviewCardProps) {
   return (
-    <Card color="transparent" shadow={false} className="w-full max-w-[26rem]">
-      <CardHeader
-        color="transparent"
-        floated={false}
-        shadow={false}
-        className="mx-0 flex items-center gap-4 pt-0 pb-8"
-      >
-        <Avatar size="lg" variant="circular" src={avatarUrl} alt="candice wu" />
-        <div className="flex w-full flex-col gap-0.5">
-          <div className="flex items-center justify-between">
-            <Typography variant="h5" color="blue-gray">
-              {name}
-            </Typography>
-            <div className="5 flex items-center gap-0">
-              <Rate value={rate} />
-            </div>
+    <div className="border cursor-pointer shadow-sm hover:shadow flex flex-col gap-4 p-3 items-center justify-center border-gray-200  h-52 w-[22rem] rounded-md">
+      <div className="w-full flex justify-between items-start">
+        <div className="flex items-center gap-3">
+          <Image
+            className=" rounded-full"
+            width={40}
+            height={40}
+            alt="user"
+            src={avatarUrl}
+          />
+          <div className="flex text-sm font-light flex-col  gap-[2px]">
+            <span className=" font-semibold">{name}</span>
+            <span className=" text-gray-600">
+              {job.length > 14 ? job?.substring(0, 14) + "..." : job}
+            </span>
           </div>
-          <Typography color="blue-gray">{job}</Typography>
         </div>
-      </CardHeader>
-      <CardBody className="mb-6 p-0">
-        <Typography>
-          {"❝ "}
-          {review}
-          {" ❞"}
-        </Typography>
-      </CardBody>
-    </Card>
+        <Rate  className=" text-sm" disabled value={rate} defaultValue={2}/>
+      </div>
+      <div className="">
+        <p className=" font-light text-sm">
+          {'"" '}{review}{' ""'}
+        </p>
+      </div>
+    </div>
   );
 }

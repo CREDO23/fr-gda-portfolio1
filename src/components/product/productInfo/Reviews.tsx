@@ -64,7 +64,7 @@ export default function Reviews({ reviews }: IReviewsProps) {
       </div>
 
       {reviews && (
-        <div className="w-full gap-5 flex-wrap flex">
+        <div className="w-full gap-5 flex-wrap justify-center flex">
           {reviews.map((review, key) => (
             <ReviewCard
               key={key}
@@ -79,7 +79,7 @@ export default function Reviews({ reviews }: IReviewsProps) {
       )}
       <div
         onClick={() => setOpen(true)}
-        className="flex px-4 border border-deep-orange-400 transition-all hover:bg-deep-orange-400 hover:text-white text-deep-orange-400 items-center justify-center rounded-md py-2"
+        className="flex px-4 border border-primary-color transition-all hover:bg-primary-color hover:text-white text-primary-color items-center justify-center rounded-md py-2"
       >
         <div className="flex cursor-pointer  items-center justify-center gap-3">
           <BiPencil />

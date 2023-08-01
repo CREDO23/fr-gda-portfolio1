@@ -1,23 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
-import {
-  Card,
-  CardHeader,
-  CardBody,
-} from "@material-tailwind/react";
 import { CiShop } from "react-icons/ci";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 
 export default function RelatedCard() {
   return (
-    <Card className="w-48 md:w-52">
-      <CardHeader shadow={false} floated={false} className="md:h-30 h-28">
+    <div className="w-48 md:w-52 border border-gray-100 shadow-sm cursor-pointer hover:shadow-md rounded">
+      <div className="md:h-30 rounded-t h-28">
         <img
         alt="product"
           src="https://images.unsplash.com/photo-1629367494173-c78a56567877?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80"
-          className="w-full h-full object-cover"
+          className="w-full rounded-t h-full object-cover"
         />
-      </CardHeader>
-      <CardBody className=" text-sm">
+      </div>
+      <div className=" p-2 text-sm">
         <div className="flex items-center  justify-between mb-2">
           <p className=" text-black">Apple AirPods</p>
         </div>
@@ -37,7 +32,7 @@ export default function RelatedCard() {
             <p className=" font-ligth">Soes shop</p>
           </div>
         </div>
-      </CardBody>
-    </Card>
+      </div>
+    </div>
   );
 }
