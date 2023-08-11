@@ -88,7 +88,8 @@ interface IShipCost {
 // }
 
 interface IDiscountData {
-  disCase: string;
+  min : number;
+  max ?: number;
   price: number;
 }
 
@@ -122,7 +123,7 @@ interface IGalleryProps {
 interface IPurchaseInfoProps {
   shipCosts: IShipCost[];
   paymentMethods: TPaymentMethodImgUrl[];
-  discountData: IDiscountData[];
+  setQuantity : Dispatch<SetStateAction<number>>
   othersInfo: {
     deliveryTime: string;
     deliveryZone: string | string[];

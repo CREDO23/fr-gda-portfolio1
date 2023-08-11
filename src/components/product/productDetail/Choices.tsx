@@ -1,8 +1,22 @@
 import { Select } from "antd";
 import { useState } from "react";
 
-export default function ProductChoices({data}: {data : IChoice[]}) {
+export default function ProductChoices({ data }: { data: IChoice[] }) {
   const [choices, setChoices] = useState<IChoice[]>([...data]);
+
+  const handleChange = (targetLabel: string, value: string) => {
+    const updated = choices.map((ch) => {
+      if (ch.label == targetLabel) {
+        ch.selected = value;
+
+        return ch;
+      }
+
+      return ch;
+    });
+
+    setChoices([...updated]);
+  };
 
   return (
     <div className=" flex flex-col gap-3">
@@ -20,7 +34,7 @@ export default function ProductChoices({data}: {data : IChoice[]}) {
                 return (
                   <div
                     key={key}
-                    // onClick={() => setColor(col)}
+                    onClick={() => handleChange("Colors", col)}
                     className={`w-8 h-8 p-[2px] cursor-pointer  ${
                       col == selected
                         ? "border border-[#FF5722] border-opacity-50"
@@ -51,7 +65,7 @@ export default function ProductChoices({data}: {data : IChoice[]}) {
                 return (
                   <div
                     key={key}
-                    // onClick={() => setSize(siz)}
+                    onClick={() => handleChange("Size", siz)}
                     className={`h-8 w-10 cursor-pointer  rounded-sm ${
                       siz == selected
                         ? "border border-[#FF5722] border-opacity-50"
@@ -67,37 +81,27 @@ export default function ProductChoices({data}: {data : IChoice[]}) {
       )}
 
       <div className="flex w-full justify-between gap-y-2 items-center flex-wrap">
-        {choices.filter(el=> el.label != "size" && el.label != "colors")
+        {choices.filter((el) => el.label != "size" && el.label != "colors")
           .length &&
           choices
             .filter((el, key) => el.label != "Size" && el.label != "Colors")
             .map((ch, key) => {
-
-                return (
-                  <div key={key} className="flex w-[45%] flex-col gap-2">
-                    <p className="font-light  opacity-70 text-sm">
-                      {ch.label}:
-                    </p>
-                    <Select
-                      bordered={false}
-                      // onChange={(e) => {
-                      //   const updated = other.map((item: IChoiceItem) => {
-                      //     if (item.label === ch.label) {
-                      //       item.value = e;
-                      //     }
-                      //     return item;
-                      //   });
-
-                      //   setOther(updated);
-                      // }}
-                      defaultValue={{ value: ch.selected }}
-                      placeholder={`Select a ${ch.label}`}
-                      labelInValue={false}
-                      options={ch?.items?.map((item) => ({value : item}))}
-                      className="w-full border rounded"
-                    />
-                  </div>
-                );
+              return (
+                <div key={key} className="flex w-[45%] flex-col gap-2">
+                  <p className="font-light  opacity-70 text-sm">{ch.label}:</p>
+                  <Select
+                    bordered={false}
+                    onChange={(e) => {
+                      handleChange(ch.label,e as unknown as string)
+                    } }
+                    value={{ value: ch.selected }}
+                    placeholder={`Select a ${ch.label}`}
+                    labelInValue={false}
+                    options={ch?.items?.map((item) => ({ value: item }))}
+                    className="w-full border rounded"
+                  />
+                </div>
+              );
             })}
       </div>
     </div>

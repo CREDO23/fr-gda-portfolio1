@@ -36,8 +36,8 @@ export default function Navigation({
             setHamburger(!hamburger);
           }}
           className={`cursor-pointer ${
-            selected == key ? " text-deep-orange-400" : ""
-          } hover:text-deep-orange-400 transition-all`}
+            selected == key ? " text-primary-color" : ""
+          } hover:text-primary-color transition-all`}
         >
           <Link href={menu.link}>{menu.label}</Link>
         </li>

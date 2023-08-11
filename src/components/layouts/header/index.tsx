@@ -4,15 +4,38 @@ import { BsCart } from "react-icons/bs";
 import Logo from "./logo";
 import { MdOutlineNotificationsNone } from "react-icons/md";
 import { BiUserCircle } from "react-icons/bi";
-import { Avatar, Badge } from "antd";
+import { Avatar, Badge, Dropdown as DP, MenuProps, Space } from "antd";
 import Hamburger from "./hamburger";
 import { useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { DownOutlined } from "@ant-design/icons";
 
 export default function Header() {
   const isLoged = true;
 
   const [hamburger, setHamburger] = useState(false);
+
+  const DropDown = ({ children }: { children: JSX.Element }) => {
+    const items: MenuProps["items"] = [
+      {
+        label: <a href="#">Dashboard</a>,
+        key: "0",
+      },
+      {
+        type: "divider",
+      },
+      {
+        label: <a href="#">Déconnexion</a>,
+        key: "3",
+      },
+    ];
+
+    return (
+      <DP menu={{ items }} trigger={["click", "hover"]}>
+        {children}
+      </DP>
+    );
+  };
   return (
     <>
       {hamburger && (
@@ -42,19 +65,21 @@ export default function Header() {
                   <BsCart className="transition-all text-lg" />
                 </Badge>
               </div>
-              <div className=" hover:text-deep-orange-400 cursor-pointer">
+              {/* <div className=" hover:text-deep-orange-400 cursor-pointer">
                 <Badge size="small" dot>
                   <MdOutlineNotificationsNone className="transition-all text-xl" />
                 </Badge>
-              </div>
-              <div className=" flex items-center justify-center gap-1 cursor-pointer">
-                <Avatar
-                  className="flex items-center justify-center"
-                  icon={<BiUserCircle />}
-                />
-                <p className=" text-xs font-light">Thierry</p>
-                <IoMdArrowDropdown className=" text-sm" />
-              </div>
+              </div> */}
+              <DropDown>
+                <div className=" flex items-center justify-center gap-1 cursor-pointer">
+                  <Avatar
+                    className="flex items-center justify-center"
+                    icon={<BiUserCircle />}
+                  />
+                  <p className=" text-xs font-light">Thierry</p>
+                  <IoMdArrowDropdown className=" text-sm" />
+                </div>
+              </DropDown>
             </div>
           ) : (
             <div className=" flex items-center justify-center gap-3">

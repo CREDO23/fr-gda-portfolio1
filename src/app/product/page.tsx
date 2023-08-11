@@ -5,6 +5,7 @@ import ProductInfo from "@/components/product/productInfo";
 import RelatedCard from "@/components/design/productCard/RelatedCard";
 import Layout from "../../components/layouts";
 
+
 export default function Index() {
   return (
     <Layout>
