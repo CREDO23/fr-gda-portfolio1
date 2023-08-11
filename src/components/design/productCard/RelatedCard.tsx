@@ -4,7 +4,7 @@ import { MdOutlineFavoriteBorder } from "react-icons/md";
 
 export default function RelatedCard() {
   return (
-    <div className="w-48 md:w-52 border border-gray-100 shadow-sm cursor-pointer hover:shadow-md rounded">
+    <div className="w-48 md:w-52 border border-gray-100 shadow-sm cursor-pointer hover:shadow-md rounded-md">
       <div className="md:h-30 rounded-t h-28">
         <img
         alt="product"

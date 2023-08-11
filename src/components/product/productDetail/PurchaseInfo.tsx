@@ -1,13 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
+import { discountData } from "@/data/discount";
 
 export default function PourchaseInfo({
-  discountData,
   paymentMethods,
   shipCosts,
   othersInfo,
+  setQuantity
 }: IPurchaseInfoProps) {
+
   const [discount, setDiscount] = useState(0);
+
+  useEffect(() => {
+      setQuantity(discountData[discount].min)
+  },[discount, setQuantity])
+  
 
   return (
     <div className="w-full xxl:w-[28rem] p-3 gap-3 divide-y flex flex-col">
@@ -35,12 +43,15 @@ export default function PourchaseInfo({
             {discountData.map((disc, key) => (
               <li
                 key={key}
-                onClick={() => setDiscount(key)}
+                onClick={() => {
+                  setDiscount(key)
+                  setQuantity(disc.min)
+                } }
                 className={`border cursor-pointer ${
                   discount == key ? "border-[#FF6026]" : ""
                 }  rounded p-[4px] flex flex-col font-light text-sm`}
               >
-                <span>{disc.disCase} pcs</span>
+                <span>{disc.max ? `${disc.min} - ${disc.max}pcs` : `>= ${disc.min}pcs` } </span>
                 <span className=" self-center font-normal">{disc.price}$</span>
               </li>
             ))}

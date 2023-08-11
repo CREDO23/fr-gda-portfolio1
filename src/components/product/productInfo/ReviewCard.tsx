@@ -9,7 +9,7 @@ export default function ReviewCard({
   review = "",
 }: IReviewCardProps) {
   return (
-    <div className="border cursor-pointer shadow-sm hover:shadow flex flex-col gap-4 p-3 items-center justify-center border-gray-200  h-52 w-[22rem] rounded-md">
+    <div className="border cursor-pointer shadow-sm hover:shadow flex flex-col gap-4 md:px-5 p-3 items-center justify-center border-gray-200  h-52 w-[22rem] rounded-md">
       <div className="w-full flex justify-between items-start">
         <div className="flex items-center gap-3">
           <Image
@@ -28,7 +28,7 @@ export default function ReviewCard({
         </div>
         <Rate  className=" text-sm" disabled value={rate} defaultValue={2}/>
       </div>
-      <div className="">
+      <div className=" text-xs">
         <p className=" font-light text-sm">
           {'"" '}{review}{' ""'}
         </p>

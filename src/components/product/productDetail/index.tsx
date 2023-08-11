@@ -12,10 +12,9 @@ import PurchaseInfo from "./PurchaseInfo";
 import { galleryData } from "../../../data/gallery";
 import { shipCosts } from "../../../data/shippingCost";
 import { paymentMethods } from "../../../data/paymentsMethods";
-import { discountData } from "../../../data/discount";
 
 export default function ProductDetail() {
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState<number>(0);
   const [open, setOpen] = useState(false);
   const [rate, setRate] = useState(0);
 
@@ -78,7 +77,7 @@ export default function ProductDetail() {
             <h3 className=" text-2xl">$45,6 - 30.12$</h3>
           </div>
         </div>
-        <Choices data={choices}  />
+        <Choices data={choices} />
         <div className="flex flex-col gap-2">
           <p className="font-light">Quantity </p>
           <div className="flex rounded items-center w-[10.5rem]">
@@ -124,9 +123,9 @@ export default function ProductDetail() {
           refunds: "Not Eligible",
           availability: true,
         }}
+        setQuantity={setQuantity}
         paymentMethods={paymentMethods}
         shipCosts={shipCosts}
-        discountData={discountData}
       />
     </div>
   );
