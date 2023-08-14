@@ -1,4 +1,5 @@
 import { InfoCircleOutlined } from "@ant-design/icons";
+import type { ReactNode } from "react";
 import { ConfigProvider, Input as Inpt } from "antd";
 
 export default function Input(props: InputProps): JSX.Element {
@@ -38,19 +39,22 @@ export default function Input(props: InputProps): JSX.Element {
       }}
     >
       <div className="w-full my-4 custom-yellow-800  flex flex-col justify-center gap-1">
-        {showLabel && (
-          <p
-            className={` ${
-              labelColor == "primary"
-                ? " custom-yellow-800"
-                : labelColor == "secondary"
-                ? " text-white"
-                : ""
-            }`}
-          >
-            {label}
-          </p>
-        )}
+        {showLabel &&
+          (typeof label === "string" ? (
+            <p
+              className={` ${
+                labelColor == "primary"
+                  ? " custom-yellow-800"
+                  : labelColor == "secondary"
+                  ? " text-white"
+                  : ""
+              }`}
+            >
+              {label}
+            </p>
+          ) : (
+            label
+          ))}
         {type === "text" && (
           <Inpt
             required={required}
