@@ -1,3 +1,4 @@
+
 declare global {}
 
 /**============== DESIGN ========================== */
@@ -19,7 +20,7 @@ interface BtnProps {
 
 interface InputProps {
   placeholder?: string;
-  label?: string;
+  label?: string |  ReactNode;
   value?: string;
   onChange?: (e: any) => void;
   onPressEnter?: (e: any) => void;
