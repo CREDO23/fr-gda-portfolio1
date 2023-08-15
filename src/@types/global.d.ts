@@ -74,20 +74,6 @@ interface IShipCost {
   price: string;
 }
 
-// interface IChoicesProps {
-//   colors?: {
-//     label: string;
-//     items: string[];
-//   } | null;
-
-//   sizes?: {
-//     label: string;
-//     items: string[];
-//   } | null;
-
-//   others?: IChoice[];
-// }
-
 interface IDiscountData {
   min : number;
   max ?: number;
@@ -145,4 +131,29 @@ interface IDescriptionProps {
 
 interface IReviewsProps {
   reviews: IReviewCardProps[];
+}
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+interface IResponse<IData> {
+  message: string;
+  data: IData;
+  error: unknown;
+  success: boolean;
+}
+
+interface IUser {
+  id: mongoose.Types.ObjectId;
+  username: string;
+  firstname: string;
+  lastname: string;
+  password: string;
+  email: string;
+  phoneNumber: string;
+  roles: string[];
+  country: string;
+  city: string;
+  adress_line1: string;
+  adress_line2: string;
 }

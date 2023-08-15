@@ -1,8 +1,9 @@
 "use client"
 import './globals.css'
-import type { Metadata } from 'next'
 import { ConfigProvider } from "antd";
 import { Poppins } from "next/font/google";
+import {Provider} from 'react-redux'
+import {  store } from '@/redux/store';
 
 
 const poppins = Poppins({
@@ -17,6 +18,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+    <Provider store={store}>
+
     <ConfigProvider
     theme={{
       token: {
@@ -24,10 +27,11 @@ export default function RootLayout({
         colorError: "#FE4D4F",
       },
     }}
-  >
+    >
     <html lang="en">
       <body className={poppins.className}>{children}</body>
     </html>
     </ConfigProvider>
+    </Provider>
   )
 }
