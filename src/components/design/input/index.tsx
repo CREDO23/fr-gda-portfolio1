@@ -1,5 +1,4 @@
 import { InfoCircleOutlined } from "@ant-design/icons";
-import type { ReactNode } from "react";
 import { ConfigProvider, Input as Inpt } from "antd";
 
 export default function Input(props: InputProps): JSX.Element {
