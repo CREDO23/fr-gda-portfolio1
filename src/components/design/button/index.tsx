@@ -13,6 +13,7 @@ export default function Button(props: BtnProps): JSX.Element {
     type ="primary",
     icon,
     onClick,
+    htmlType = "submit"
   } = props;
 
   return (
@@ -39,6 +40,7 @@ export default function Button(props: BtnProps): JSX.Element {
         loading={loading}
         danger={danger}
         shape={shape}
+        htmlType={htmlType}
       >
         {title}
       </Btn>
