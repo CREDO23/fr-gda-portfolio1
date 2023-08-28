@@ -7,10 +7,9 @@ type TRegisterInput = {
 };
 
 type TLoginInput = {
-  username : string;
-  passworf : string;
-}
-
+  username: string;
+  password: string;
+};
 
 export const authApi = createApi({
   reducerPath: "auth",
@@ -26,19 +25,34 @@ export const authApi = createApi({
           url: "register",
         };
       },
+
+      transformErrorResponse: (err) => {
+        let data: any = {};
+
+        data = err.data;
+
+        return data.message;
+      },
     }),
 
-    login : builder.mutation<IResponse<IUser>, TLoginInput>({
-        query : (data) => {
-            return {
-                url : "/login",
-                method : "POST",
-                body: data,
-            }
-        }
-    })
+    login: builder.mutation<IResponse<IUser>, TLoginInput>({
+      query: (data) => {
+        return {
+          url: "/login",
+          method: "POST",
+          body: data,
+        };
+      },
+
+      transformErrorResponse: (err) => {
+        let data: any = {};
+
+        data = err.data;
+
+        return data.message;
+      },
+    }),
   }),
 });
 
-
-export const {useRegisterMutation} = authApi
+export const { useRegisterMutation, useLoginMutation } = authApi;
