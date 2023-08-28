@@ -1,24 +1,24 @@
 "use client";
-import Button from "@/components/design/button";
-import Input from "@/components/design/input";
+import Button from "@/components/global/button";
+import Input from "@/components/global/input";
 import { AiOutlineUser, AiOutlineLock, AiOutlineMail } from "react-icons/ai";
 import { useRegisterMutation } from "@/redux/api/auth";
 import { useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
-import { ISignupInputs, singupSchema, defaultValues } from "./form";
-import { formFieldsRules } from "./form";
+import { ISignupInputs, singupSchema, defaultValues } from "./formValidation";
 
 export default function Singup(): JSX.Element {
   const [registerUser, { error, isLoading, data, isSuccess, isError }] =
     useRegisterMutation();
 
-  const { handleSubmit, control , formState : {errors, isValid}, trigger } = useForm<ISignupInputs>({
+  // ===== Form handeling =====
+  const { handleSubmit, control } = useForm<ISignupInputs>({
     resolver: joiResolver(singupSchema),
     defaultValues: {
       ...defaultValues,
     },
-    reValidateMode : "onChange"
+    reValidateMode: "onChange",
   });
 
   useEffect(() => {
@@ -33,11 +33,15 @@ export default function Singup(): JSX.Element {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
-  const onSubmit = (data: any) => {
-
-    trigger()
-    console.log(isValid , data);
-    
+  // ====== Submit form ==========
+  const onSubmit = (data: {
+    username: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+  }) => {
+    const { confirmPassword, ...rest } = data;
+    registerUser({ ...rest });
   };
 
   return (
@@ -57,15 +61,13 @@ export default function Singup(): JSX.Element {
             <Controller
               name="username"
               control={control}
-            
-              rules={{ ...formFieldsRules.username }}
-              render={({ field , fieldState : { error}}) => (
+              render={({ field: { ref, ...field }, fieldState: { error } }) => (
                 <Input
                   addonBefore={<AiOutlineUser />}
                   label={<p className=" text-sm">Username</p>}
                   placeholder="Enter your username"
                   type="text"
-                  
+                  refEl={ref}
                   {...field}
                   error={error?.message}
                 />
@@ -74,13 +76,13 @@ export default function Singup(): JSX.Element {
             <Controller
               name="email"
               control={control}
-              rules={{ ...formFieldsRules.email }}
-              render={({ field , fieldState : { error}}) => (
+              render={({ field: { ref, ...field }, fieldState: { error } }) => (
                 <Input
                   addonBefore={<AiOutlineMail />}
                   label={<p className=" text-sm">Email</p>}
                   placeholder="Enter your email address"
                   {...field}
+                  refEl={ref}
                   error={error?.message}
                 />
               )}
@@ -88,25 +90,23 @@ export default function Singup(): JSX.Element {
             <Controller
               name="password"
               control={control}
-              rules={{ ...formFieldsRules.password }}
-              render={({ field, fieldState : { error} }) => (
+              render={({ field: { ref, ...field }, fieldState: { error } }) => (
                 <Input
                   addonBefore={<AiOutlineLock />}
                   label={<p className=" text-sm">Password</p>}
                   placeholder="Enter your password"
                   type="password"
                   required
+                  refEl={ref}
                   {...field}
                   error={error?.message}
-
                 />
               )}
             />
             <Controller
               name="confirmPassword"
               control={control}
-              rules={{ ...formFieldsRules.password }}
-              render={({ field }) => (
+              render={({ field: { ref, ...field }, fieldState: { error } }) => (
                 <Input
                   addonBefore={<AiOutlineLock />}
                   label={<p className=" text-sm">Confirm password</p>}
@@ -114,11 +114,10 @@ export default function Singup(): JSX.Element {
                   type="password"
                   required
                   {...field}
-                  error={errors.confirmPassword?.message}
+                  error={error?.message}
                 />
               )}
             />
-           
           </div>
           <div className=" w-full flex items-center justify-center">
             <p className=" font-light text-xs">
@@ -130,7 +129,7 @@ export default function Singup(): JSX.Element {
           </div>
 
           <div className="flex w-full items-center my-3 justify-center">
-            <Button htmlType="submit" title="CREATE YOUR ACCOUNT" />
+            <Button loading={isLoading} htmlType="submit" title="CREATE YOUR ACCOUNT" />
           </div>
         </form>
       </div>

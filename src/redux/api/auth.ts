@@ -6,10 +6,16 @@ type TRegisterInput = {
   password: string;
 };
 
+type TLoginInput = {
+  username : string;
+  passworf : string;
+}
+
+
 export const authApi = createApi({
   reducerPath: "auth",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://smarket-bc.onrender.com/api/auth/",
+    baseUrl: `${process.env.NEXT_PUBLIC_API_URL}/auth`,
   }),
   endpoints: (builder) => ({
     register: builder.mutation<IResponse<IUser>, TRegisterInput>({
@@ -22,7 +28,7 @@ export const authApi = createApi({
       },
     }),
 
-    login : builder.mutation({
+    login : builder.mutation<IResponse<IUser>, TLoginInput>({
         query : (data) => {
             return {
                 url : "/login",

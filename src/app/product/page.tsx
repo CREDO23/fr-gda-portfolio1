@@ -2,7 +2,7 @@
 
 import ProductDetail from "@/components/product/productDetail";
 import ProductInfo from "@/components/product/productInfo";
-import RelatedCard from "@/components/design/productCard/RelatedCard";
+import RelatedCard from "@/components/global/productCard/RelatedCard";
 import Layout from "../../components/layouts";
 
 

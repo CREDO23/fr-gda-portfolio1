@@ -1,7 +1,7 @@
 "use client";
 
-import Button from "@/components/design/button";
-import Input from "@/components/design/input";
+import Button from "@/components/global/button";
+import Input from "@/components/global/input";
 import { AiOutlineUser, AiOutlineLock, AiOutlineMail } from "react-icons/ai";
 
 export default function Singup(): JSX.Element {

@@ -2,7 +2,7 @@ import { Modal, Rate, Select } from "antd";
 import { BiPencil } from "react-icons/bi";
 import ReviewCard from "./ReviewCard";
 import { useState } from "react";
-import Button from "@/components/design/button";
+import Button from "@/components/global/button";
 
 export default function Reviews({ reviews }: IReviewsProps) {
   const [open, setOpen] = useState(false);

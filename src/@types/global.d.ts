@@ -43,6 +43,7 @@ interface InputProps {
   error?: string;
   labelColor?: "primary" | "secondary";
   required?: boolean;
+  refEl? : RefCallBack
   inputMode?:
     | "email"
     | "tel"
