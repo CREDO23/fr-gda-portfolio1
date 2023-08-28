@@ -3,8 +3,8 @@
 import { useState } from "react";
 import Layout from "@/components/layouts";
 import Hero from "@/components/home/hero";
-import Input from "@/components/design/input";
-import Product from "@/components/design/productCard/Card";
+import Input from "@/components/global/input";
+import Product from "@/components/global/productCard/Card";
 import { Select } from "antd";
 import Link from "next/link";
 

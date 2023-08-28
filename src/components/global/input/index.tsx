@@ -27,6 +27,7 @@ export default function Input(props: InputProps): JSX.Element {
     error,
     labelColor = "primary",
     required = false,
+    refEl = null,
   } = props;
   return (
     <ConfigProvider
@@ -72,6 +73,7 @@ export default function Input(props: InputProps): JSX.Element {
             showCount={showCount}
             prefix={prefix}
             suffix={suffix}
+            ref={refEl}
           />
         )}
         {type === "password" && (
@@ -86,6 +88,7 @@ export default function Input(props: InputProps): JSX.Element {
             size={size}
             status={error ? "error" : status}
             disabled={disabled}
+            ref={refEl}
           />
         )}
         {type === "search" && (
@@ -106,6 +109,7 @@ export default function Input(props: InputProps): JSX.Element {
             maxLength={maxLength}
             showCount={showCount}
             prefix={prefix}
+            ref={refEl}
             suffix={suffix}
           />
         )}
@@ -121,12 +125,12 @@ export default function Input(props: InputProps): JSX.Element {
             disabled={disabled}
             maxLength={maxLength}
             showCount={showCount}
+            ref={refEl}
             autoSize={autoSize}
           />
         )}
         {error && (
           <div className=" text-xs font-light text-red flex items-center gap-1">
-            <InfoCircleOutlined />
             <p>{error}</p>
           </div>
         )}
