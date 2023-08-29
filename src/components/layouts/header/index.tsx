@@ -2,15 +2,18 @@ import Button from "@/components/global/button";
 import Navigation from "./navigation";
 import { BsCart } from "react-icons/bs";
 import Logo from "./logo";
-import { MdOutlineNotificationsNone } from "react-icons/md";
-import { BiUserCircle } from "react-icons/bi";
+import { BiUserCircle} from "react-icons/bi";
 import { Avatar, Badge, Dropdown as DP, MenuProps, Space } from "antd";
 import Hamburger from "./hamburger";
 import { useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { DownOutlined } from "@ant-design/icons";
+import { useAppSelector } from "@/redux/hooks";
+
 
 export default function Header() {
+
+  const currentUser = useAppSelector(store => store.auth)
+
   const isLoged = true;
 
   const [hamburger, setHamburger] = useState(false);
@@ -36,6 +39,9 @@ export default function Header() {
       </DP>
     );
   };
+
+
+  console.log(currentUser.mutations) 
   return (
     <>
       {hamburger && (
@@ -60,16 +66,11 @@ export default function Header() {
           </div>
           {isLoged ? (
             <div className="flex items-center justify-center gap-4">
-              <div className=" hover:text-deep-orange-400 cursor-pointer">
+              <div className=" hover:text-deep-orange-400 text-black cursor-pointer">
                 <Badge size="small" dot>
                   <BsCart className="transition-all text-lg" />
                 </Badge>
               </div>
-              {/* <div className=" hover:text-deep-orange-400 cursor-pointer">
-                <Badge size="small" dot>
-                  <MdOutlineNotificationsNone className="transition-all text-xl" />
-                </Badge>
-              </div> */}
               <DropDown>
                 <div className=" flex items-center justify-center gap-1 cursor-pointer">
                   <Avatar
