@@ -1,14 +1,28 @@
+"use client";
+
 import Header from "./header";
 import Footer from "./footer";
 
-export default function Layout({ children } : {children: JSX.Element}) {
+export default function Layout({
+  children,
+  showHeader = true,
+  showFooter = true,
+  noScroll = false,
+}: {
+  children: JSX.Element;
+  showHeader?: boolean;
+  showFooter?: boolean;
+  noScroll?: boolean;
+}) {
   return (
     <div
-      className={` overflow-auto no-scrollbar h-screen  items-center justify-center  w-screen  gap-5`}
+      className={` ${
+        noScroll ? " overflow-hidden" : "overflow-auto no-scrollbar"
+      }  h-screen  items-center justify-center  w-screen  gap-5`}
     >
-      <Header />
+      {showHeader && <Header />}
       <div className="w-full">{children}</div>
-      <Footer />
+      {showFooter && <Footer />}
     </div>
   );
 }

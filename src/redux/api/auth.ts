@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import {REHYDRATE} from 'redux-persist'
 
 type TRegisterInput = {
   username: string;
@@ -57,4 +56,8 @@ export const authApi = createApi({
   }),
 });
 
-export const { useRegisterMutation, useLoginMutation } = authApi;
+
+export const { useRegisterMutation, useLoginMutation ,  } = authApi;
+export const data= authApi.endpoints.login
+
+
