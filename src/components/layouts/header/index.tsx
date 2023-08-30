@@ -2,17 +2,18 @@ import Button from "@/components/global/button";
 import Navigation from "./navigation";
 import { BsCart } from "react-icons/bs";
 import Logo from "./logo";
-import { BiUserCircle} from "react-icons/bi";
+import { BiUserCircle } from "react-icons/bi";
 import { Avatar, Badge, Dropdown as DP, MenuProps, Space } from "antd";
 import Hamburger from "./hamburger";
 import { useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { useAppSelector } from "@/redux/hooks";
+import { useLoginMutation } from "@/redux/api/auth";
 
 
 export default function Header() {
-
-  const currentUser = useAppSelector(store => store.auth)
+  const currentUser = useAppSelector((store) => store.auth);
+  const [,{data}] = useLoginMutation()
 
   const isLoged = true;
 
@@ -40,8 +41,6 @@ export default function Header() {
     );
   };
 
-
-  console.log(currentUser.mutations) 
   return (
     <>
       {hamburger && (
