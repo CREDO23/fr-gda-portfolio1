@@ -15,20 +15,23 @@ export default function DashboardLayout({
   children: ReactNode;
 }): JSX.Element {
   const menus = [
-    { title: "dashboard", icon: <BiSolidDashboard />, path: "/seller/dashboard" },
-    { title: "shops", icon: <AiFillShop />, path: "/seller/dashboard/shops" },
     {
-      title: "products",
+      title: "Dashboard",
+      icon: <BiSolidDashboard />,
+      path: "/seller/dashboard",
+    },
+    { title: "Shops", icon: <AiFillShop />, path: "/seller/dashboard/shops" },
+    {
+      title: "Products",
       icon: <FaProductHunt />,
       path: "/seller/dashboard/products",
     },
-    { title: "profil", icon: <FaUserAlt />, path: "/seller/dashboard/profile" },
+    { title: "Profil", icon: <FaUserAlt />, path: "/seller/dashboard/profile" },
   ];
+
   const currentPath = usePathname();
   const [collapse, setCollapse] = useState<boolean>(false);
-  const [menu, setMenu] = useState<string>("dashboard");
-
-  // console.log(currentPath.split("/"))
+  const [menu, setMenu] = useState<string>("Dashboard");
 
   return (
     <Layout noScroll showFooter={false}>
@@ -58,7 +61,6 @@ export default function DashboardLayout({
 
           <ul className={` ${collapse ? "p-[.5rem]" : "p-4"}`}>
             {menus.map((item) => {
-              console.log(currentPath == item.path);
               return (
                 <li onClick={() => setMenu(item.title)} key={item.title}>
                   <Link
