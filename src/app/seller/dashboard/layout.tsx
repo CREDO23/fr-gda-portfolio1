@@ -7,7 +7,9 @@ import { BiSolidDashboard, BiCollapseHorizontal } from "react-icons/bi";
 import { AiFillShop } from "react-icons/ai";
 import { FaProductHunt, FaUserAlt } from "react-icons/fa";
 import { usePathname } from "next/navigation";
-import { current } from "@reduxjs/toolkit";
+import { Select } from "antd";
+import { shopNames } from "@/data/shops";
+import DatePicker from "@/components/date/datePicker";
 
 export default function DashboardLayout({
   children,
@@ -88,7 +90,7 @@ export default function DashboardLayout({
         <header
           className={`h-20 transition-all ${
             collapse ? "w-[calc(100%-4rem)]" : "w-[calc(100%-16rem)]"
-          } bg-primary-color/5`}
+          } bg-primary-color/5 flex items-center justify-between gap-4`}
         >
           <div
             className={` inline-flex transition-all cursor-pointer h-full  p-3 text-2xl items-center font-light text-black`}
@@ -100,13 +102,22 @@ export default function DashboardLayout({
               <BiCollapseHorizontal />
             </div>
           </div>
+
+          <div className="flex items-center gap-5 px-6">
+            <div className="h-12 w-40 flex items-center justify-center">
+              <Select defaultValue={{value : 'Shop1', label : 'Shop1'}} options={shopNames.map(el => ({label : el, value : el}))} className="w-full" />
+            </div>
+            <div className="h-12 flex items-center justify-center">
+              <DatePicker  />
+            </div>
+          </div>
         </header>
         <div
           className={` transition-all absolute top-20 ${
             collapse
               ? " left-16 w-[calc(100%-4rem)]"
               : "left-64 w-[calc(100%-16rem)]"
-          }  h-[calc(100%-5rem)] border border-primary-color/50 p-[1.5rem] rounded-tl-3xl`}
+          }  h-[calc(100%-5rem)] border border-primary-color/50 p-[.8rem] rounded-tl-xl`}
         >
           {children}
         </div>

@@ -134,6 +134,15 @@ interface IReviewsProps {
   reviews: IReviewCardProps[];
 }
 
+interface IDashboardCardProps {
+  cardName: "turnover" | "profit" | "customers";
+  amount: number;
+  pourcentage: {
+    type: "positive" | "negative";
+    value: number;
+  };
+}
+
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
