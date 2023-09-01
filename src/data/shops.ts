@@ -1,0 +1,1 @@
+export const shopNames = ['Shop1', 'Shop2', 'Shop3']
