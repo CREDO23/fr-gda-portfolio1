@@ -38,7 +38,7 @@ export default function Input(props: InputProps): JSX.Element {
         },
       }}
     >
-      <div className="w-full my-4 custom-yellow-800  flex flex-col justify-center gap-1">
+      <div className="w-full custom-yellow-800  flex flex-col gap-1">
         {showLabel &&
           (typeof label === "string" ? (
             <p

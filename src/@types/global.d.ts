@@ -62,6 +62,22 @@ interface IhamburgerProps {
   hamburger: boolean;
 }
 
+
+interface ISelectProps {
+  defaultValue? : string | string[] |
+  number | number[] 
+  label?: string |  ReactNode;
+  disabled? : boolean
+  options : { label : string, value }[]
+  placeholder? : string
+  size?: "large" | "middle" | "small";
+  value ?: string | string[] |
+  number | number[] 
+  onChange?: (e: any) => void;
+  showLabel?: boolean;
+  labelColor?: "primary" | "secondary";
+}
+
 /** ===================================================================== */
 
 interface IChoice {
@@ -142,6 +158,7 @@ interface IDashboardCardProps {
     value: number;
   };
 }
+
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

@@ -26,7 +26,7 @@ export default function Button(props: BtnProps): JSX.Element {
       }}
     >
       <Btn
-        className="flex items-center justify-center "
+        className="flex uppercase text-sm items-center justify-center "
         style={
           type === "primary" && !ghost ? { background: "#ff5722" } : undefined
         }
