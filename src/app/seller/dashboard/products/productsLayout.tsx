@@ -13,7 +13,7 @@ export default function ProductsLayout({
 
   return (
     <div className="w-full h-full flex flex-col items-center gap-2">
-      <div className="w-full text-sm border-b h-10 flex items-end pb-[.6rem] justify-center gap-6 ">
+      <div className="w-full text-sm border-b shrink-0 h-10 flex items-end pb-[.6rem] justify-center gap-6 ">
         {tabItems.map((tab) => (
           <Link
             href={
@@ -35,7 +35,7 @@ export default function ProductsLayout({
           </Link>
         ))}
       </div>
-      <div className="w-full">{children}</div>
+      <div className="w-full h-[calc(100%-6.5rem)]">{children}</div>
     </div>
   );
 }
