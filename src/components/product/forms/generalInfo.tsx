@@ -3,11 +3,12 @@
 import Input from "@/components/global/input";
 import Select from "@/components/global/select";
 import { Controller, useForm } from "react-hook-form";
-import UploadImage from "./imageUpload";
+import UploadImage from "../../global/image/imageUpload";
 import {IoIosArrowDown, IoIosArrowUp} from 'react-icons/io'
 import { useState } from "react";
+import Button from "@/components/global/button";
 
-export default function GeneralInfo() {
+export default function GeneralInfoForm() {
   const { handleSubmit, control } = useForm();
 
   const [collapse, setCollapse] = useState(false);
@@ -15,12 +16,12 @@ export default function GeneralInfo() {
   return (
     <div className={` overflow-hidden rounded-md border transition-all w-full ${collapse ? 'h-10' : 'h-auto'} `}>
       <div onClick={() => setCollapse(!collapse)} className="w-full cursor-pointer  border-b h-10 px-2 flex items-center justify-between">
-        <h3 className=" font-semibold">1. General Information</h3>  <span  className=" text-lg">{
+        <h3 className=" font-medium">1. General Information</h3>  <span  className=" text-lg">{
           collapse ? <IoIosArrowDown/> : <IoIosArrowUp/>
         }</span>
       </div>
-      <form className="p-2" action="">
-        <div className="flex flex-wrap  gap-4">
+      <form className=" w-full" action="">
+        <div className="flex p-2 w-full flex-wrap  gap-4">
           <div className="w-80 shrink-0">
             <Controller
               name="productTitle"
@@ -69,8 +70,11 @@ export default function GeneralInfo() {
           </div>
           <div className="flex flex-col gap-1">
             <span className=" text-sm">Product image</span>
-            <UploadImage/>
+            <UploadImage quantity={1}/>
           </div>
+        </div>
+        <div className="w-full border-t p-2 flex items-center justify-end">
+                  <Button title="Add info"/>
         </div>
       </form>
     </div>

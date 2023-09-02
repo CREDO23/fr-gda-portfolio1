@@ -13,7 +13,7 @@ const getBase64 = (file: RcFile): Promise<string> =>
     reader.onerror = (error) => reject(error);
   });
 
-export default function UploadImage() {
+export default function UploadImage({quantity} : {quantity : number}) {
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState("");
   const [previewTitle, setPreviewTitle] = useState("");
@@ -55,7 +55,7 @@ export default function UploadImage() {
         }}
         onChange={handleChange}
       >
-        {fileList.length >= 1 ? null : uploadButton}
+        {fileList.length >= quantity ? null : uploadButton}
       </Upload>
       <Modal
         open={previewOpen}
