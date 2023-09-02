@@ -6,6 +6,7 @@ import ProductsLayout from "../productsLayout";
 import Button from "@/components/global/button";
 import GeneralInfoForm from "@/components/product/forms/generalInfo";
 import GalleryForm from "@/components/product/forms/gallery";
+import AttributesForm from "@/components/product/forms/attributes";
 
 export default function NewProduct() {
   const productInfoList = [
@@ -26,7 +27,7 @@ export default function NewProduct() {
 
   return (
     <ProductsLayout currentTab="new">
-      <div className="w-full h-full flex gap-3 ">
+      <div className="w-full h-full overflow-hidden flex gap-3 ">
         <div className="border h-80 w-64 p-3 shrink-0 rounded-md">
           <ul className="w-full h-full flex  justify-center flex-col gap-2">
             {productInfoList.map((el) => {
@@ -41,20 +42,26 @@ export default function NewProduct() {
             })}
           </ul>
         </div>
-        <div className="border rounded-md  grow p-3">
-          <div className="w-full flex flex-col gap-3">
-            <h2 className=" font-semibold">Product information :</h2>
-
-            <div className="w-full gap-3 flex flex-col items-center">
-            <GeneralInfoForm/>
-          <GalleryForm/>
-            </div>
+        <div className="border relative h-full overflow-y-scroll gap-4 flex flex-col  rounded-md  grow">
+          <div className="sticky p-3 top-0 w-full bg-slate-200 z-10">
+            <h2 className="  font-semibold">Product information :</h2>
           </div>
-            
+
+          <div className="w-full gap-6 flex  p-3  flex-col items-center">
+            <GeneralInfoForm />
+            <GalleryForm />
+            <AttributesForm />
+          </div>
         </div>
         <div className="w-64  flex items-center flex-col gap-3">
-          <Button htmlType="button"  block title="Publish" />
-          <Button  htmlType="button"  ghost  block title="Save as draft" />
+          <Button size="large" htmlType="button" block title="Publish" />
+          <Button
+            size="large"
+            htmlType="button"
+            ghost
+            block
+            title="Save as draft"
+          />
         </div>
       </div>
     </ProductsLayout>

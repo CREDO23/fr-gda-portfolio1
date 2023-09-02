@@ -16,7 +16,7 @@ export default function GeneralInfoForm() {
   return (
     <div className={` overflow-hidden rounded-md border transition-all w-full ${collapse ? 'h-10' : 'h-auto'} `}>
       <div onClick={() => setCollapse(!collapse)} className="w-full cursor-pointer  border-b h-10 px-2 flex items-center justify-between">
-        <h3 className=" font-medium">1. General Information</h3>  <span  className=" text-lg">{
+        <h3 className=" font-medium flex items-center gap-4"> <span className="h-4 w-4 rounded-full border border-primary-color"></span> <span>General Information</span> </h3>  <span  className=" text-lg">{
           collapse ? <IoIosArrowDown/> : <IoIosArrowUp/>
         }</span>
       </div>
@@ -74,7 +74,7 @@ export default function GeneralInfoForm() {
           </div>
         </div>
         <div className="w-full border-t p-2 flex items-center justify-end">
-                  <Button title="Add info"/>
+                  <Button title="Save"/>
         </div>
       </form>
     </div>

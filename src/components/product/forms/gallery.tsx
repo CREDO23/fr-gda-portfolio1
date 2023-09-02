@@ -16,7 +16,7 @@ export default function GalleryForm() {
         onClick={() => setCollapse(!collapse)}
         className="w-full cursor-pointer  border-b h-10 px-2 flex items-center justify-between"
       >
-        <h3 className=" font-medium">2. Gallery</h3>{" "}
+        <h3 className=" font-medium flex items-center gap-4"><span className="h-4 w-4 border border-primary-color rounded-full bg-primary-color/80"></span> <span>Gallery</span> </h3>{" "}
         <span className=" text-lg">
           {collapse ? <IoIosArrowDown /> : <IoIosArrowUp />}
         </span>
@@ -28,7 +28,7 @@ export default function GalleryForm() {
           </div>
         </div>
         <div className="w-full border-t p-2 flex items-center justify-end">
-          <Button title="Add info" />
+          <Button title="Save" />
         </div>
       </form>
     </div>
