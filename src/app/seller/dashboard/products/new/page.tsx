@@ -4,7 +4,8 @@ import { useState } from "react";
 import { BsCheck2 } from "react-icons/bs";
 import ProductsLayout from "../productsLayout";
 import Button from "@/components/global/button";
-import GeneralInfo from "@/components/product/forms/generalInfo";
+import GeneralInfoForm from "@/components/product/forms/generalInfo";
+import GalleryForm from "@/components/product/forms/gallery";
 
 export default function NewProduct() {
   const productInfoList = [
@@ -40,8 +41,16 @@ export default function NewProduct() {
             })}
           </ul>
         </div>
-        <div className="border rounded-md grow p-3">
-          <GeneralInfo/>
+        <div className="border rounded-md  grow p-3">
+          <div className="w-full flex flex-col gap-3">
+            <h2 className=" font-semibold">Product information :</h2>
+
+            <div className="w-full gap-3 flex flex-col items-center">
+            <GeneralInfoForm/>
+          <GalleryForm/>
+            </div>
+          </div>
+            
         </div>
         <div className="w-64  flex items-center flex-col gap-3">
           <Button htmlType="button"  block title="Publish" />
