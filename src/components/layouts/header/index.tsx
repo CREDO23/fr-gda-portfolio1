@@ -9,6 +9,7 @@ import { useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { useAppSelector } from "@/redux/hooks";
 import { useLoginMutation } from "@/redux/api/auth";
+import Link from "next/link";
 
 
 export default function Header() {
@@ -22,7 +23,7 @@ export default function Header() {
   const DropDown = ({ children }: { children: JSX.Element }) => {
     const items: MenuProps["items"] = [
       {
-        label: <a href="#">Dashboard</a>,
+        label: <Link href={'/seller/dashboard'}><span>Dashboard</span></Link>,
         key: "0",
       },
       {

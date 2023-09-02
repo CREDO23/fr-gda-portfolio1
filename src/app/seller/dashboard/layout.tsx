@@ -35,6 +35,7 @@ export default function DashboardLayout({
   const [collapse, setCollapse] = useState<boolean>(false);
   const [menu, setMenu] = useState<string>("Dashboard");
 
+
   return (
     <Layout noScroll showFooter={false}>
       <main className="w-screen relative bg-white h-screen overflow-hidden flex-wrap flex">
@@ -71,7 +72,7 @@ export default function DashboardLayout({
                         ? "p-[.5rem] flex items-center justify-center"
                         : "px-[1rem] py-[.5rem]"
                     }  rounded-lg my-4 ${
-                      currentPath == item.path
+                      currentPath.split('/')[3] == item.path.split("/")[3]
                         ? " text-white bg-primary-color"
                         : "text-black  hover:bg-primary-color/5"
                     }  `}
