@@ -163,7 +163,7 @@ const columns: ColumnsType<DataType> = [
       <div className=" flex items-center  gap-3">
         <Link
           className="p-1 cursor-pointer border border-blue-500 rounded-lg text-blue-500"
-          href={`/seller/dashboard/products/${record.shopName}`}
+          href={`/seller/dashboard/shops/${record.shopName}`}
         >
           <BsEye />
         </Link>
