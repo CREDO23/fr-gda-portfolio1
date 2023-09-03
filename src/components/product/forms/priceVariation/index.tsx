@@ -6,94 +6,99 @@ import NewPriceForm from "./newPriceForm";
 
 interface DataType {
     key : string;
-    min: string;
-    max: string | number;
+    min: number;
+    max: number;
     price : number
   }
   
   const dataSource = [
     {
       key: "1",
-      min: "Mike",
+      min: 23,
       max: 32,
       price : 23
     },
     {
       key: "2",
-      min: "John",
+      min: 23,
       max: 42,
       price : 23
     },
     {
       key: "3",
-      min: "Mike",
+      min: 23,
       max: 32,
       price : 23
     },
     {
       key: "4",
-      min: "John",
+      min: 23,
       max: 42,
       price : 23
     },
     {
       key: "5",
-      min: "Mike",
+      min: 23,
       max: 32,
       price : 23
     },
     {
       key: "6",
-      min: "John",
+      min: 23,
       max: 42,
       price : 23
     },
     {
       key: "7",
-      min: "Mike",
+      min: 23,
       max: 32,
       price : 23
     },
     {
       key: "8",
-      min: "John",
+      min: 23,
       max: 42,
       price : 23
     },
     {
       key: "9",
-      min: "Mike",
+      min: 23,
       max: 32,
       price : 23
     },
     {
       key: "10",
-      min: "John",
+      min: 23,
       max: 42,
       price : 23
     },
   ];
   
+
+
+export default function PriceVariationForm() {
+  const [collapse, setCollapse] = useState(false);
+
   const columns: ColumnsType<DataType> = [
     {
       title: "Min. Qtty",
       dataIndex: "min",
       key: "min",
+      render : (text) => `${text} pc(s)`
     },
     {
       title: "Max. Qtty",
       dataIndex: "max",
       key: "max",
+      render : (text) => `${text} pc(s)`
     },
     {
         title: "Price",
         dataIndex: "price",
         key: "price",
+        render : (text) => `${text} [devise]`
     },
   ];
-
-export default function PriceVariationForm() {
-  const [collapse, setCollapse] = useState(false);
 
   return (
     <div
