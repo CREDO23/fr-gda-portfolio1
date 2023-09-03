@@ -72,7 +72,7 @@ export default function ColorAttribute() {
   };
 
   return (
-    <div className="w-full flex flex-col gap-2">
+    <div className="w-full flex flex-col gap-5">
       <Table
         scroll={{ y: 200 }}
         pagination={false}
@@ -84,8 +84,8 @@ export default function ColorAttribute() {
         <Button
           onClick={() => openModal(true)}
           size="small"
-          ghost
-          title="+ Add color"
+          type="default"
+          title="+ New color"
         />
       </span>
 

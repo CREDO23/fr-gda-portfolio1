@@ -26,6 +26,8 @@ export default function RootLayout({
           token: {
             colorPrimary: "#ff5722",
             colorError: "#FE4D4F",
+            colorBgTextHover : 'red'
+           
           },
         }}
       >
