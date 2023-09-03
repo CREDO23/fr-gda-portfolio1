@@ -59,7 +59,7 @@ export default function NewProduct() {
             <ShippingInfoForm/>
           </div>
         </div>
-        <div className="w-64  flex items-center flex-col gap-3">
+        <div className="w-40 shrink-0  flex items-center flex-col gap-3">
           <Button size="large" htmlType="button" block title="Publish" />
           <Button
             size="large"
