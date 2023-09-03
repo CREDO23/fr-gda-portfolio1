@@ -1,82 +1,10 @@
-import { Modal, Table } from "antd";
+import { Modal } from "antd";
 import Input from "@/components/global/input";
 import Button from "@/components/global/button";
-import { ColumnsType } from "antd/es/table";
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 
-interface DataType {
-  label: string;
-  value: string | number;
-}
-
-const dataSource = [
-  {
-    key: "1",
-    label: "Mike",
-    value: 32,
-  },
-  {
-    key: "2",
-    label: "John",
-    value: 42,
-  },
-  {
-    key: "3",
-    label: "Mike",
-    value: 32,
-  },
-  {
-    key: "4",
-    label: "John",
-    value: 42,
-  },
-  {
-    key: "5",
-    label: "Mike",
-    value: 32,
-  },
-  {
-    key: "6",
-    label: "John",
-    value: 42,
-  },
-  {
-    key: "7",
-    label: "Mike",
-    value: 32,
-  },
-  {
-    key: "8",
-    label: "John",
-    value: 42,
-  },
-  {
-    key: "9",
-    label: "Mike",
-    value: 32,
-  },
-  {
-    key: "10",
-    label: "John",
-    value: 42,
-  },
-];
-
-const columns: ColumnsType<DataType> = [
-  {
-    title: "Label",
-    dataIndex: "label",
-    key: "label",
-  },
-  {
-    title: "Value",
-    dataIndex: "value",
-    key: "value",
-  },
-];
-
-export default function Attribute() {
+export default function NewCharacteristicForm() {
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [modalText, setModalText] = useState("Content of the modal");
   const { handleSubmit, control } = useForm();
@@ -101,25 +29,17 @@ export default function Attribute() {
   };
 
   return (
-    <div className="w-full flex flex-col gap-5">
-      <Table
-        scroll={{ y: 200 }}
-        pagination={false}
-        bordered
-        columns={columns}
-        dataSource={dataSource}
-      />
+    <div className="w-full flex flex-col gap-2">
       <span>
         <Button
           onClick={() => openModal(true)}
-          size="small"
-          type="default"
-          title="+ New x"
+          ghost
+          title="Add more characteristic"
         />
       </span>
       <Modal
         centered
-        title="New x"
+        title="New characteristic"
         open={modal}
         onOk={handleOk}
         confirmLoading={confirmLoading}
@@ -130,15 +50,15 @@ export default function Attribute() {
           </div>
         }
       >
-        <form className="w-full h-full flex items-center gap-2 ">
-          <div className="w-80 ">
+        <form className="w-full h-full flex-wrap flex items-center gap-2 ">
+          <div className="w-80 shrink-0 ">
             <Controller
-              name="attributeLable"
+              name="characteristicTitle"
               control={control}
               render={({ field: { ref, ...field }, fieldState: { error } }) => (
                 <Input
-                  label={<p className=" text-sm">Label</p>}
-                  placeholder="Enter the product title"
+                  label={<p className=" text-sm">Characteristic title</p>}
+                  placeholder="Enter the title of the characteristic"
                   type="text"
                   refEl={ref}
                   {...field}
@@ -147,15 +67,15 @@ export default function Attribute() {
               )}
             />
           </div>
-          <div className="w-80 ">
+          <div className="w-80 shrink-0 ">
             <Controller
-              name="attributeValue"
+              name="characteristicDescription"
               control={control}
               render={({ field: { ref, ...field }, fieldState: { error } }) => (
                 <Input
-                  label={<p className=" text-sm">Value</p>}
-                  placeholder="Enter the product title"
-                  type="text"
+                  label={<p className=" text-sm">Characteristic description</p>}
+                  placeholder="Enter the description of the characteristic"
+                  type="textarea"
                   refEl={ref}
                   {...field}
                   error={error?.message}

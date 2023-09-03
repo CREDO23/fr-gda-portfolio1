@@ -8,7 +8,7 @@ export default function GalleryForm() {
 
   return (
     <div
-      className={` overflow-hidden rounded-md border transition-all w-full ${
+      className={` overflow-hidden rounded-md border border-slate-400/80 transition-all w-full ${
         collapse ? "h-10" : "h-auto"
       } `}
     >
