@@ -55,6 +55,22 @@ export default function GeneralInfoForm() {
             </div>
             <div className="w-80 shrink-0">
               <Controller
+                name="productCategory"
+                control={control}
+                render={({
+                  field: { ref, ...field },
+                  fieldState: { error },
+                }) => (
+                  <Select
+                    label={<p className=" text-sm">Category</p>}
+                    placeholder="Select a category"
+                    options={[{ label: "credo", value: 34 }]}
+                  />
+                )}
+              />
+            </div>
+            <div className="w-80 shrink-0">
+              <Controller
                 name="productShop"
                 control={control}
                 render={({
