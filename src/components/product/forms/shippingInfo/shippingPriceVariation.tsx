@@ -1,11 +1,84 @@
-import { Modal } from "antd";
+import { Modal, Table } from "antd";
 import Input from "@/components/global/input";
 import Button from "@/components/global/button";
+import { ColumnsType } from "antd/es/table";
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import Select from "@/components/global/select";
 
-export default function NewPriceForm() {
+interface DataType {
+    key : string;
+    min: string;
+    max: string | number;
+    price : number
+  }
+  
+  const dataSource = [
+    {
+      key: "1",
+      min: "Mike",
+      max: 32,
+      price : 23
+    },
+    {
+      key: "2",
+      min: "John",
+      max: 42,
+      price : 23
+    },
+    {
+      key: "3",
+      min: "Mike",
+      max: 32,
+      price : 23
+    },
+    {
+      key: "4",
+      min: "John",
+      max: 42,
+      price : 23
+    },
+    {
+      key: "5",
+      min: "Mike",
+      max: 32,
+      price : 23
+    },
+    {
+      key: "6",
+      min: "John",
+      max: 42,
+      price : 23
+    },
+    {
+      key: "7",
+      min: "Mike",
+      max: 32,
+      price : 23
+    },
+    {
+      key: "8",
+      min: "John",
+      max: 42,
+      price : 23
+    },
+    {
+      key: "9",
+      min: "Mike",
+      max: 32,
+      price : 23
+    },
+    {
+      key: "10",
+      min: "John",
+      max: 42,
+      price : 23
+    },
+  ];
+  
+
+
+export default function ShippingPriceVariation() {
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [modalText, setModalText] = useState("Content of the modal");
   const { handleSubmit, control } = useForm();
@@ -29,10 +102,43 @@ export default function NewPriceForm() {
     openModal(false);
   };
 
+  const columns: ColumnsType<DataType> = [
+    {
+      title: "Min. weight",
+      dataIndex: "min",
+      key: "min",
+      render : (text) => `${text} kg`
+    },
+    {
+      title: "Max. weight",
+      dataIndex: "max",
+      key: "max",
+  render : (text) => `${text} kg`
+    },
+    {
+        title: "Price",
+        dataIndex: "price",
+        key: "price",
+        render: (text) => `${text} [devise]`
+    },
+  ];
+
   return (
-    <div className="w-full flex flex-col gap-2">
+    <div className="w-full flex flex-col gap-5">
+      <Table
+        scroll={{ y: 200 }}
+        pagination={false}
+        bordered
+        columns={columns}
+        dataSource={dataSource}
+      />
       <span>
-        <Button onClick={() => openModal(true)} ghost title="New price" />
+        <Button
+          onClick={() => openModal(true)}
+          size="small"
+          type="default"
+          title="+ New price"
+        />
       </span>
       <Modal
         centered
@@ -58,8 +164,8 @@ export default function NewPriceForm() {
                   fieldState: { error },
                 }) => (
                   <Input
-                    label={<p className=" text-sm">Minimum</p>}
-                    addonAfter={<span>pc(s)</span>}
+                    label={<p className=" text-sm">Minimum weight</p>}
+                    addonAfter={<span>kg</span>}
                     placeholder="Enter the minimum quantity of product"
                     type="text"
                     refEl={ref}
@@ -78,8 +184,8 @@ export default function NewPriceForm() {
                   fieldState: { error },
                 }) => (
                   <Input
-                    label={<p className=" text-sm">Maximum</p>}
-                    addonAfter={<span>pc(s)</span>}
+                    label={<p className=" text-sm">Maximum weight</p>}
+                    addonAfter={<span>kg</span>}
                     placeholder="Enter the minimum quantity of product"
                     type="text"
                     refEl={ref}

@@ -9,6 +9,7 @@ import GalleryForm from "@/components/product/forms/gallery";
 import AttributesForm from "@/components/product/forms/attributes";
 import CharacteristicsForm from "@/components/product/forms/characteristics";
 import PriceVariationForm from "@/components/product/forms/priceVariation";
+import ShippingInfoForm from "@/components/product/forms/shippingInfo";
 
 export default function NewProduct() {
   const productInfoList = [
@@ -55,6 +56,7 @@ export default function NewProduct() {
             <AttributesForm />
             <CharacteristicsForm/>
             <PriceVariationForm/>
+            <ShippingInfoForm/>
           </div>
         </div>
         <div className="w-64  flex items-center flex-col gap-3">

@@ -24,17 +24,16 @@ export default function GeneralInfoForm() {
         className="w-full cursor-pointer  border-b h-10 px-2 flex items-center justify-between"
       >
         <h3 className=" font-medium flex items-center gap-4">
-          {" "}
-          <span className="h-4 w-4 rounded-full border border-primary-color"></span>{" "}
-          <span>General Information</span>{" "}
-        </h3>{" "}
+          <span className="h-4 w-4 rounded-full border bg-primary-color border-primary-color"></span>{" "}
+          <span>General Information</span>
+        </h3>
         <span className=" text-lg">
           {collapse ? <IoIosArrowDown /> : <IoIosArrowUp />}
         </span>
       </div>
       <form className=" w-full" action="">
         <div className="flex p-2 w-full flex-col flex-wrap  gap-4">
-          <div className="w-full items-center gap-4 flex flex-wrap">
+          <div className="w-full  gap-4 flex flex-wrap">
             <div className="w-80 shrink-0">
               <Controller
                 name="productTitle"
@@ -56,7 +55,7 @@ export default function GeneralInfoForm() {
             </div>
             <div className="w-80 shrink-0">
               <Controller
-                name="productTitle"
+                name="productShop"
                 control={control}
                 render={({
                   field: { ref, ...field },
@@ -90,8 +89,48 @@ export default function GeneralInfoForm() {
               />
             </div>
           </div>
-          <div className="w-full items-center gap-2 flex flex-wrap">
-            <div className="w-64 shrink-0 ">
+          <div className="w-full items-center gap-4 flex flex-wrap">
+          <div className="w-40 shrink-0 ">
+              <Controller
+                name="stock"
+                control={control}
+                render={({
+                  field: { ref, ...field },
+                  fieldState: { error },
+                }) => (
+                  <Input
+                    label={<p className=" text-sm">Stock</p>}
+                    placeholder="Enter the number of product in stock"
+                    addonAfter={<span>pc(s)</span>}
+                    type="text"
+                    refEl={ref}
+                    {...field}
+                    error={error?.message}
+                  />
+                )}
+              />
+            </div>
+          <div className="w-40 shrink-0 ">
+              <Controller
+                name="minOrder"
+                control={control}
+                render={({
+                  field: { ref, ...field },
+                  fieldState: { error },
+                }) => (
+                  <Input
+                    label={<p className=" text-sm">Minimum order</p>}
+                    placeholder="Enter the minimum order"
+                    addonAfter={<span>pc(s)</span>}
+                    type="text"
+                    refEl={ref}
+                    {...field}
+                    error={error?.message}
+                  />
+                )}
+              />
+            </div>
+            <div className="w-40 shrink-0 ">
               <Controller
                 name="price"
                 control={control}
