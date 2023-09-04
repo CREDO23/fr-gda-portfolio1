@@ -101,7 +101,7 @@ export default function Header() {
             </div>
           ) : (
             <div className=" flex items-center justify-center gap-3">
-              <Link href={"/auth/signup"}>
+              <Link href={"/auth/signin"}>
                 <Button type="primary" title="Connexion" />
               </Link>
             </div>
