@@ -10,17 +10,26 @@ import { joiResolver } from "@hookform/resolvers/joi";
 import { ISignupInputs, singupSchema, defaultValues } from "./formValidation";
 import { message } from "antd";
 import Link from "next/link";
+import {useRouter} from 'next/navigation'
+import { useAppDispatch } from "@/redux/hooks";
+import { setUser } from "@/redux/slices/currentUser";
 
 export default function Singup(): JSX.Element {
   // ==== State ======
   const [registerUser, { error, isLoading, data, isSuccess, isError }] =
     useRegisterMutation();
 
+    const dispatch = useAppDispatch()
+
+    const router = useRouter();
+
   const [msg, messageContext] = message.useMessage();
 
   useEffect(() => {
     if (isSuccess) {
       msg.success(data?.message);
+      dispatch(setUser(data?.data!))
+      router.push('/');
     }
 
     if (isError) {

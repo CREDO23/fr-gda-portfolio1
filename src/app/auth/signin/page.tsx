@@ -11,11 +11,17 @@ import { message } from "antd";
 import { useEffect } from "react";
 import { joiResolver } from "@hookform/resolvers/joi";
 import Link from "next/link";
+import {useRouter} from 'next/navigation'
+import { useAppDispatch } from "@/redux/hooks";
+import { setUser } from "@/redux/slices/currentUser";
 
 export default function Singup(): JSX.Element {
   // ===== State =======
   const [logUser, { isError, isSuccess, isLoading, error, data }] =
     useLoginMutation();
+  const dispatch = useAppDispatch()
+
+  const router = useRouter();
 
   const [msg, messageContex] = message.useMessage();
   
@@ -23,6 +29,8 @@ export default function Singup(): JSX.Element {
   useEffect(() => {
     if (isSuccess) {
       msg.success(data?.message);
+      dispatch(setUser(data?.data!))
+      router.push('/');
     }
 
     if (isError) {

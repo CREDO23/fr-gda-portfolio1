@@ -1,5 +1,4 @@
 module.exports = {
-    reactStrictMode: true,
     transpilePackages: ["@smarket-design"],
     images: {
       remotePatterns: [

@@ -7,30 +7,46 @@ import { Avatar, Badge, Dropdown as DP, MenuProps, Space } from "antd";
 import Hamburger from "./hamburger";
 import { useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { useAppSelector } from "@/redux/hooks";
-import { useLoginMutation } from "@/redux/api/auth";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import Link from "next/link";
-
+import { useRouter } from "next/navigation";
+import { removeUser } from "@/redux/slices/currentUser";
 
 export default function Header() {
-  const currentUser = useAppSelector((store) => store.auth);
-  const [,{data}] = useLoginMutation()
-
-  const isLoged = true;
+  const currentUser = useAppSelector((store) => store.currentUser);
+  const router = useRouter();
+  const dispatch = useAppDispatch();
 
   const [hamburger, setHamburger] = useState(false);
+
+  const handleDeconnexion = () => {
+    dispatch(removeUser());
+    router.push("/");
+  };
 
   const DropDown = ({ children }: { children: JSX.Element }) => {
     const items: MenuProps["items"] = [
       {
-        label: <Link href={'/seller/dashboard'}><span>Dashboard</span></Link>,
+        label: (
+          <Link href={"/"}>
+            <span>Home</span>
+          </Link>
+        ),
+        key: "0",
+      },
+      {
+        label: (
+          <Link href={"/seller/dashboard"}>
+            <span>Dashboard</span>
+          </Link>
+        ),
         key: "0",
       },
       {
         type: "divider",
       },
       {
-        label: <a href="#">Déconnexion</a>,
+        label: <span onClick={handleDeconnexion}>Déconnexion</span>,
         key: "3",
       },
     ];
@@ -64,7 +80,7 @@ export default function Header() {
           <div className="">
             <Navigation hamburger={hamburger} setHamburger={setHamburger} />
           </div>
-          {isLoged ? (
+          {currentUser.accessToken ? (
             <div className="flex items-center justify-center gap-4">
               <div className=" hover:text-deep-orange-400 text-black cursor-pointer">
                 <Badge size="small" dot>
@@ -73,23 +89,21 @@ export default function Header() {
               </div>
               <DropDown>
                 <div className=" flex items-center justify-center gap-1 cursor-pointer">
-                  <Avatar
-                    className="flex items-center justify-center"
-                    icon={<BiUserCircle />}
-                  />
-                  <p className=" text-xs font-light">Thierry</p>
+                  <div className=" w-8 flex items-center justify-center font-semibold h-8 rounded-full bg-primary-color text-white">
+                  {currentUser.user?.username.substring(0,1)}
+                  </div>
+                  <p className=" text-xs font-light">
+                    {currentUser.user?.username}
+                  </p>
                   <IoMdArrowDropdown className=" text-sm" />
                 </div>
               </DropDown>
             </div>
           ) : (
             <div className=" flex items-center justify-center gap-3">
-              <p className=" cursor-pointer hover:text-deep-orange-400 text-sm">
-                Login
-              </p>
-              <div>
-                <Button type="primary" title="Get started" />
-              </div>
+              <Link href={"/auth/signup"}>
+                <Button type="primary" title="Connexion" />
+              </Link>
             </div>
           )}
         </div>

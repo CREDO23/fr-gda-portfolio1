@@ -6,7 +6,7 @@ export default function Hero() {
     <div className="w-full pt-10 md:pt-4  md:justify-between flex-col md:flex-row flex items-center bg-opacity-40 bg-gradient-to-b from-white via-deep-orange-50 to-white  h-[calc(100%-27rem)] md:h-[27rem]">
       <div className=" w-full md:w-7/12 h-full flex items-center justify-center md:order-last  ">
         <div className=" ">
-          <Image alt="hero-img" src={hero} />
+          <Image priority alt="hero-img" src={hero} />
         </div>
       </div>
       <div className="flex   text-center   h-full md:p-10 gap-3 items-center md:justify-center flex-col  w-full md:w-5/12">
