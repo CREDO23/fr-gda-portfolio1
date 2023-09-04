@@ -18,13 +18,27 @@ export const authApi = createApi({
   }),
 
   endpoints: (builder) => ({
-    register: builder.mutation<IResponse<IUser>, TRegisterInput>({
+    register: builder.mutation<
+      IResponse<{ user: IUser; accessToken: string }>,
+      TRegisterInput
+    >({
       query: (data) => {
         return {
           method: "POST",
           body: data,
           url: "register",
         };
+      },
+
+      async onQueryStarted(args, { queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled;
+
+          localStorage.setItem("user", JSON.stringify(data.data.user));
+          localStorage.setItem("accessToken", JSON.stringify(data.data.accessToken));
+        } catch (error) {
+          console.log(error);
+        }
       },
 
       transformErrorResponse: (err) => {
@@ -36,13 +50,27 @@ export const authApi = createApi({
       },
     }),
 
-    login: builder.mutation<IResponse<IUser>, TLoginInput>({
+    login: builder.mutation<
+      IResponse<{ user: IUser; accessToken: string }>,
+      TLoginInput
+    >({
       query: (data) => {
         return {
           url: "/login",
           method: "POST",
           body: data,
         };
+      },
+
+      async onQueryStarted(args, { queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled;
+
+          localStorage.setItem("user", JSON.stringify(data.data.user));
+          localStorage.setItem("accessToken", JSON.stringify(data.data.accessToken));
+        } catch (error) {
+          console.log(error);
+        }
       },
 
       transformErrorResponse: (err) => {
@@ -56,8 +84,5 @@ export const authApi = createApi({
   }),
 });
 
-
-export const { useRegisterMutation, useLoginMutation ,  } = authApi;
-export const data= authApi.endpoints.login
-
-
+export const { useRegisterMutation, useLoginMutation } = authApi;
+export const data = authApi.endpoints.login;

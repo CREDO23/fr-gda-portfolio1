@@ -26,14 +26,14 @@ export default function RootLayout({
           token: {
             colorPrimary: "#ff5722",
             colorError: "#FE4D4F",
-            colorBgTextHover : 'red'
+            
            
           },
         }}
       >
         <html lang="en">
           <head></head>
-          <body className={poppins.className}>
+          <body suppressHydrationWarning={true} className={poppins.className}>
             <PersistGate persistor={persistor}>{children}</PersistGate>
           </body>
         </html>

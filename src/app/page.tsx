@@ -44,8 +44,8 @@ export default function Index() {
           </div>
           <div className="w-full flex gap-2  justify-center flex-wrap ">
             {[...new Array(10)].map((_item, key) => (
-              <Link href={'/product'} key={key}>
-              <Product  />
+              <Link href={"/product"} key={key}>
+                <Product />
               </Link>
             ))}
           </div>

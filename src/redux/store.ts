@@ -11,6 +11,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+import currentUser from "./slices/currentUser";
 
 const persistConfig = {
   key: "root",
@@ -18,6 +19,7 @@ const persistConfig = {
 };
 
 const reducers = combineReducers({
+  'currentUser': currentUser,
   [authApi.reducerPath]: authApi.reducer,
 });
 
