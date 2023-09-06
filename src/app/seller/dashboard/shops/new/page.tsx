@@ -7,6 +7,8 @@ import Button from "@/components/global/button";
 import GeneralInfoForm from "@/components/shop/forms/generalInfo";
 import GalleryForm from "@/components/shop/forms/gallery";
 import PaymentMethodsForm from "@/components/shop/forms/paymentMethods";
+import { CloseOutlined, CheckOutlined } from "@ant-design/icons";
+import { Switch } from "antd";
 
 export default function NewShop() {
   const productInfoList = ["General Information", "Gallery", "Payment methods"];
@@ -14,6 +16,8 @@ export default function NewShop() {
   const [shopInfoChekedList, setShopInfoChekedList] = useState<string[]>([
     "Gallery",
   ]);
+
+  const [published,setPublished] = useState(false)
 
   return (
     <ShopsLayout currentTab="new">
@@ -44,15 +48,18 @@ export default function NewShop() {
           </div>
         </div>
         <div className="w-40 shrink-0  flex items-center flex-col gap-3">
-          <Button size="large" htmlType="button" block title="Publish" />
-          <Button
-            size="large"
-            htmlType="button"
-            ghost
-            block
-            title="Save as draft"
-          />
+          <Button size="large" htmlType="button" block title="Create" />
+          <div className="w-full flex items-center justify-end gap-6">
+            <span>Published</span> <Switch
+              style={{ backgroundColor: "#FF5722" }}
+              checkedChildren={<CloseOutlined />}
+              unCheckedChildren={<CheckOutlined />}
+              defaultChecked
+              checked={published}
+              onChange={(e) => setPublished(e)}
+            />
         </div>
+      </div>
       </div>
     </ShopsLayout>
   );
