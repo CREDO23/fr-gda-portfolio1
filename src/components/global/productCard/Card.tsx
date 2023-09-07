@@ -7,7 +7,7 @@ export default function Example() {
   const description = `With plenty of talk and listen time, voice-activated Siri access,
   and an available wireless charging case.`;
   return (
-    <div className="md:w-64 w-[47%] cursor-pointer border flex-col gap-3 flex hover:shadow rounded-md">
+    <div className=" w-full shrink-0 cursor-pointer border flex-col gap-3 flex hover:shadow rounded-md">
       <div className="h-44 rounded-md">
         <img
           alt="product"
