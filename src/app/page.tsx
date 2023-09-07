@@ -32,7 +32,7 @@ export default function Index() {
       <div className="w-full h-full flex flex-col items-center">
         <Hero />
         <div className="w-full my-3">
-          <div className="w-full my-8 z-20 flex items-center sticky top-[3rem]  bg-white flex-col">
+          <div className="w-full my-8 z-10 flex items-center sticky top-[3rem] md:top-[4rem] bg-white h-20  justify-center flex-col">
             <div className="w-full md:w-5/12 px-3">
               <Input
                 addonBefore={selectOption}
@@ -42,9 +42,9 @@ export default function Index() {
               />
             </div>
           </div>
-          <div className="w-full flex gap-2  justify-center flex-wrap ">
+          <div className="w-full justify-center md:justify-start md:px-[6rem] flex gap-2 flex-wrap ">
             {[...new Array(10)].map((_item, key) => (
-              <Link href={"/product"} key={key}>
+              <Link className="md:w-64 w-[48%]" href={"/product"} key={key}>
                 <Product />
               </Link>
             ))}
