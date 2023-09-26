@@ -59,7 +59,7 @@ interface InputProps {
 
 interface IhamburgerProps {
   setHamburger?: Dispatch<SetStateAction<boolean>>;
-  hamburger: boolean;
+  hamburger?: boolean;
 }
 
 

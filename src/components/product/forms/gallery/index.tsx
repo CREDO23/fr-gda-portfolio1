@@ -1,5 +1,5 @@
-import UploadImage from "@/components/global/image/imageUpload";
-import Button from "@/components/global/button";
+import UploadImage from "@/components/shared/image/imageUpload";
+import Button from "@/components/shared/button";
 import { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 

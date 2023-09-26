@@ -1,17 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { authApi } from "./api/auth";
 import { storage } from "./webStorage";
-import { combineReducers } from "redux";
-import {
-  persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from "redux-persist";
 import currentUser from "./slices/currentUser";
+import {persistReducer,FLUSH,REHYDRATE,PAUSE,PERSIST,PURGE,REGISTER} from 'redux-persist'
+import {combineReducers} from 'redux'
 
 const persistConfig = {
   key: "root",

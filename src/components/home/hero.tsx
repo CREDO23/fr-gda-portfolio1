@@ -13,7 +13,7 @@ export default function Hero() {
         <p className=" md:text-left  w-80 text-xs font-extralight">
           Asolutely hot collections 💯
         </p>
-        <h3 className=" text-3xl font-semibold w-96  md:w-80 md:text-left  ">
+        <h3 className=" text-3xl w-96  md:w-80 md:text-left  ">
           The best Place To Find And Buy Amazing{" "}
           <span className=" font-bold text-green-600">Product</span>
         </h3>

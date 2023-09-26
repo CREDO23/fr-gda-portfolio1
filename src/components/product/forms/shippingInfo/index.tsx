@@ -1,4 +1,4 @@
-import Button from "@/components/global/button";
+import Button from "@/components/shared/button";
 import { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import Zones from "./zones";

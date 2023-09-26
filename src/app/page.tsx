@@ -3,8 +3,8 @@
 import { useState } from "react";
 import Layout from "@/components/layouts";
 import Hero from "@/components/home/hero";
-import Input from "@/components/global/input";
-import Product from "@/components/global/productCard/Card";
+import Input from "@/components/shared/input";
+import Product from "@/components/shared/productCard/Card";
 import { Select } from "antd";
 import Link from "next/link";
 
@@ -42,10 +42,10 @@ export default function Index() {
               />
             </div>
           </div>
-          <div className="w-full justify-center md:justify-start md:px-[6rem] flex gap-2 flex-wrap ">
+          <div className="w-full pb-6 justify-center md:justify-start md:px-[6rem] flex gap-2 flex-wrap ">
             {[...new Array(10)].map((_item, key) => (
-              <Link className="md:w-64 w-[48%]" href={"/product"} key={key}>
-                <Product />
+              <Link className="w-[14rem] max-[500px]:w-[48%]" href={"/product"} key={key}>
+                <Product key={key} />
               </Link>
             ))}
           </div>

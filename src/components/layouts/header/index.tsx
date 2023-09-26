@@ -1,4 +1,4 @@
-import Button from "@/components/global/button";
+import Button from "@/components/shared/button";
 import Navigation from "./navigation";
 import { BsCart } from "react-icons/bs";
 import Logo from "./logo";

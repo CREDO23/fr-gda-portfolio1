@@ -2,7 +2,7 @@ import { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { Controller, useForm } from "react-hook-form";
 import { Checkbox, Row, Col } from "antd";
-import Button from "@/components/global/button";
+import Button from "@/components/shared/button";
 
 export default function PaymentMethodsForm() {
   const [collapse, setCollapse] = useState(false);

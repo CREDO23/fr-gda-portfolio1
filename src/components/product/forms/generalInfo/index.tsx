@@ -1,12 +1,12 @@
 "use client";
 
-import Input from "@/components/global/input";
-import Select from "@/components/global/select";
+import Input from "@/components/shared/input";
+import Select from "@/components/shared/select";
 import { Controller, useForm } from "react-hook-form";
-import UploadImage from "../../../global/image/imageUpload";
+import UploadImage from "../../../shared/image/imageUpload";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { useState } from "react";
-import Button from "@/components/global/button";
+import Button from "@/components/shared/button";
 
 export default function GeneralInfoForm() {
   const { handleSubmit, control } = useForm();
