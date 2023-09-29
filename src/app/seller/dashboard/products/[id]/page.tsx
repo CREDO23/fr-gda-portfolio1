@@ -7,7 +7,7 @@ import PriceVariationForm from "@/components/product/forms/priceVariation";
 import ShippingInfoForm from "@/components/product/forms/shippingInfo";
 import { BsCheck2 } from "react-icons/bs";
 import ProductsLayout from "../productsLayout";
-import Button from "@/components/global/button";
+import Button from "@/components/shared/button";
 import { useState } from "react";
 
 export default function ProductDetails({ params }: { params: { id: string } }) {

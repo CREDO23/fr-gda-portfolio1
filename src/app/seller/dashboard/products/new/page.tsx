@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { BsCheck2 } from "react-icons/bs";
 import ProductsLayout from "../productsLayout";
-import Button from "@/components/global/button";
+import Button from "@/components/shared/button";
 import GeneralInfoForm from "@/components/product/forms/generalInfo";
 import GalleryForm from "@/components/product/forms/gallery";
 import AttributesForm from "@/components/product/forms/attributes";

@@ -1,9 +1,9 @@
 import { Modal } from "antd";
-import Input from "@/components/global/input";
-import Button from "@/components/global/button";
+import Input from "@/components/shared/input";
+import Button from "@/components/shared/button";
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import Select from "@/components/global/select";
+import Select from "@/components/shared/select";
 
 export default function NewPriceForm() {
   const [confirmLoading, setConfirmLoading] = useState(false);

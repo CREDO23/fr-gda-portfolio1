@@ -1,4 +1,4 @@
-import Button from "@/components/global/button";
+import Button from "@/components/shared/button";
 import Table, { ColumnsType } from "antd/es/table";
 import { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";

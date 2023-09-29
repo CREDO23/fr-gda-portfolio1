@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
-import Button from "@/components/global/button";
-import Input from "@/components/global/input";
+import Button from "@/components/shared/button";
+import Input from "@/components/shared/input";
 import { AiOutlineUser, AiOutlineLock } from "react-icons/ai";
 import { useForm, Controller } from "react-hook-form";
 import { defaultValues, singinSchema } from "./formValidation";
@@ -53,7 +53,7 @@ export default function Singup(): JSX.Element {
     <>
       {messageContex}
       <div className=" w-screen h-screen flex items-center justify-center">
-        <div className="  py-3 px-5  w-80">
+        <div className=" flex flex-col gap-6  py-3 px-5  w-80">
           <div className=" w-full flex-col flex gap-4 items-center justify-center">
             <p className="bg-clip-text  text-transparent text-2xl font-semibold bg-gradient-to-r from-slate-900 via-orange-600 to-slate-900">
               SMARKET
@@ -61,7 +61,7 @@ export default function Singup(): JSX.Element {
             <p className="">Log into your account</p>
           </div>
           <form onSubmit={handleSubmit(onSubmit)} className="rounded flex items-center justify-center flex-col gap-3">
-            <div className="w-full">
+            <div className="w-full flex flex-col gap-3">
               <Controller
                 name="username"
                 control={control}

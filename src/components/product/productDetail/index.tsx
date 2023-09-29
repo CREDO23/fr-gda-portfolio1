@@ -2,7 +2,7 @@ import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { FiShare2 } from "react-icons/fi";
 import { AiOutlineShop } from "react-icons/ai";
 import { useState } from "react";
-import Button from "@/components/global/button";
+import Button from "@/components/shared/button";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import Gallery from "./Gallery";
 import Choices from "./Choices";

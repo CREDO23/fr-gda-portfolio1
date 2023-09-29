@@ -39,7 +39,7 @@ export default function Navigation({
             selected == key ? " text-primary-color" : ""
           } hover:text-primary-color transition-all`}
         >
-          <Link href={menu.link}>{menu.label}</Link>
+          <Link href={menu.link} className=" text-sm font-light">{menu.label}</Link>
         </li>
       ))}
     </ul>

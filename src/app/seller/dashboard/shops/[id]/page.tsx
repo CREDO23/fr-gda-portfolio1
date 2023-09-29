@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { BsCheck2 } from "react-icons/bs";
 import ShopsLayout from "../shopsLayout";
-import Button from "@/components/global/button";
+import Button from "@/components/shared/button";
 import GeneralInfoForm from "@/components/shop/forms/generalInfo";
 import GalleryForm from "@/components/shop/forms/gallery";
 import PaymentMethodsForm from "@/components/shop/forms/paymentMethods";
