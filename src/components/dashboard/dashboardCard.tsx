@@ -10,7 +10,7 @@ export default function DashboardCard({
 }: IDashboardCardProps) {
   return (
     <div
-      className={`w-96 min-w-[22rem] ${
+      className={`w-72 ${
         cardName == "turnover"
           ? " bg-beige-color/10"
           : cardName == "profit"
@@ -18,11 +18,11 @@ export default function DashboardCard({
           : cardName == "customers"
           ? " bg-violet-color/10"
           : ""
-      } p-3 rounded-md  h-32 flex items-center justify-between`}
+      } p-3 rounded-md h-28 flex items-center justify-between`}
     >
-      <div className="h-full flex  justify-center flex-col gap-3 w-72">
-        <span className=" capitalize text-lg font-light">{cardName}</span>
-        <span className=" text-xl font-medium">{`${
+      <div className="h-full flex  justify-center flex-col gap-3 w-54 ">
+        <span className=" capitalize  font-light">{cardName}</span>
+        <span className=" text-2xl font-medium">{`${
           cardName == "customers" ? "" : "$"
         }${amount}`}</span>
         <span

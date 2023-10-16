@@ -45,7 +45,7 @@ export default function ProductsLayout({
         </Link>
         })}
       </div>
-      <div className="w-full h-[calc(100%-6.5rem)]">{children}</div>
+      <div className="w-full overflow-hidden h-[calc(100%-2.5rem)]">{children}</div>
     </div>
   );
 }

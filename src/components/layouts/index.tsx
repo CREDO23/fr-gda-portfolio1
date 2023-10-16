@@ -21,7 +21,7 @@ export default function Layout({
       }  h-screen  items-center justify-center  w-screen  gap-5`}
     >
       {showHeader && <Header />}
-      <div className="w-full">{children}</div>
+      <div className={`w-full ${!showFooter && 'h-[calc(100vh-4rem)]'}`}>{children}</div>
       {showFooter && <Footer />}
     </div>
   );

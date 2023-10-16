@@ -430,13 +430,14 @@ const columns: ColumnsType<DataType> = [
 export default function AllProduct() {
   return (
     <ProductsLayout currentTab="all">
+      <div className=" w-full h-full overflow-auto">
       <Table
         bordered
         scroll={{ y: 700 }}
-        pagination={false}
         columns={columns}
         dataSource={dataSource}
       />
+      </div>
     </ProductsLayout>
   );
 }
