@@ -38,15 +38,15 @@ export default function DashboardLayout({
 
   return (
     <Layout noScroll showFooter={false}>
-      <main className="w-screen relative bg-white h-screen overflow-hidden flex-wrap flex">
+      <main className="w-full relative text-sm font-light bg-white h-full overflow-hidden flex-wrap flex">
         <div
           className={`h-full overflow-hidden transition-all ${
-            collapse ? " w-16" : "w-64"
+            collapse ? " w-16" : "w-52"
           }  bg-primary-color/5`}
         >
           {collapse ? (
             <div className=" w-full  h-20 flex items-center justify-center">
-              <div className="h-14 flex items-center justify-center bg-slate-500 w-14 rounded-full">
+              <div className="h-12 flex items-center justify-center bg-slate-500 w-12 rounded-full">
                 User
               </div>
             </div>
@@ -80,7 +80,7 @@ export default function DashboardLayout({
                   >
                     <span className=" text-xl">{item.icon}</span>
                     {!collapse && (
-                      <span className=" text-lg font-light">{item.title}</span>
+                      <span className=" font-light">{item.title}</span>
                     )}
                   </Link>
                 </li>
@@ -89,8 +89,8 @@ export default function DashboardLayout({
           </ul>
         </div>
         <header
-          className={`h-20 transition-all ${
-            collapse ? "w-[calc(100%-4rem)]" : "w-[calc(100%-16rem)]"
+          className={`h-14 transition-all ${
+            collapse ? "w-[calc(100%-4rem)]" : "w-[calc(100%-13rem)]"
           } bg-primary-color/5 flex items-center justify-between gap-4`}
         >
           <div
@@ -98,7 +98,7 @@ export default function DashboardLayout({
           >
             <div
               onClick={() => setCollapse(!collapse)}
-              className=" h-10 w-10 flex items-center justify-center border border-primary-color/50 text-primary-color/50 rounded"
+              className=" h-8 w-8 flex items-center justify-center border border-primary-color/50 text-primary-color/50 rounded"
             >
               <BiCollapseHorizontal />
             </div>
@@ -114,11 +114,11 @@ export default function DashboardLayout({
           </div>
         </header>
         <div
-          className={` transition-all absolute top-20 ${
+          className={` transition-all absolute top-14 ${
             collapse
-              ? " left-16 w-[calc(100%-4rem)]"
-              : "left-64 w-[calc(100%-16rem)]"
-          }  h-[calc(100%-5rem)] border border-primary-color/50 p-[.8rem] rounded-tl-xl`}
+              ? "left-16 w-[calc(100%-4rem)]"
+              : "left-52 w-[calc(100%-13rem)]"
+          }  h-[calc(100%-3.5rem)] overflow-hidden border border-primary-color/50 p-[.8rem] rounded-tl-xl`}
         >
           {children}
         </div>
