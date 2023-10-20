@@ -26,7 +26,7 @@ export default function NewShop() {
           <ul className="w-full h-full flex  justify-center flex-col gap-2">
             {productInfoList.map((el) => {
               return (
-                <li className=" flex items-center gap-3 font-light" key={el}>
+                <li className=" flex items-center gap-3 font-light" key={`${el}-shop`}>
                   <span className=" border text-primary-color border-primary-color/50 h-6 w-6 rounded-full flex items-center justify-center">
                     {shopInfoChekedList.includes(el) && <BsCheck2 />}
                   </span>
@@ -48,10 +48,10 @@ export default function NewShop() {
           </div>
         </div>
         <div className="w-40 shrink-0  flex items-center flex-col gap-3">
-          <Button size="large" htmlType="button" block title="Create" />
-          <div className="w-full flex items-center justify-end gap-6">
+          <Button  htmlType="button" block title="Create" />
+          <div className="w-full flex items-center justify-between gap-6">
             <span>Published</span> <Switch
-              style={{ backgroundColor: "#FF5722" }}
+              style={{ backgroundColor: published ?  "#E2E8F0" : "#FF5722" }}
               checkedChildren={<CloseOutlined />}
               unCheckedChildren={<CheckOutlined />}
               defaultChecked

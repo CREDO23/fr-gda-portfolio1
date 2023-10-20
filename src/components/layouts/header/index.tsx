@@ -46,7 +46,7 @@ export default function Header() {
         type: "divider",
       },
       {
-        label: <span onClick={handleDeconnexion}>Déconnexion</span>,
+        label: <Link href={"/auth/signin"}><span onClick={handleDeconnexion}>Déconnexion</span></Link>,
         key: "3",
       },
     ];
