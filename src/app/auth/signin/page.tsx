@@ -101,8 +101,8 @@ export default function Singup(): JSX.Element {
               />
             </div>
             <div className=" w-full flex items-center flex-col gap-3 justify-center">
-              <p className=" font-light text-xs">
-                Don&apos;t have an account ?
+              <p className=" font-light text-sm">
+                Don&apos;t have an account ?{' '}
                 <Link href={'/auth/signup'}>
                 <span className=" font-normal cursor-pointer text-primary-color">
                   Singup

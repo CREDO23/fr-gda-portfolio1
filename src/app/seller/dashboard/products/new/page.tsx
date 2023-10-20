@@ -35,7 +35,7 @@ export default function NewProduct() {
           <ul className="w-full h-full flex  justify-center flex-col gap-2">
             {productInfoList.map((el) => {
               return (
-                <li className=" flex items-center gap-3 font-light" key={el}>
+                <li className=" flex items-center gap-3 font-light" key={`${el}-product`}>
                   <span className=" border text-primary-color border-primary-color/50 h-6 w-6 rounded-full flex items-center justify-center">
                     {productInfoChekedList.includes(el) && <BsCheck2 />}
                   </span>

@@ -150,7 +150,7 @@ export default function Singup(): JSX.Element {
               />
             </div>
             <div className=" w-full flex items-center justify-center">
-              <p className=" font-light text-xs">
+              <p className=" font-light text-sm">
                 Already have an account ?{" "}
                 <Link href={'/auth/signin'}>
                 <span className=" font-normal cursor-pointer text-primary-color">

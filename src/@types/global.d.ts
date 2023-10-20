@@ -1,4 +1,3 @@
-
 declare global {}
 
 /**============== DESIGN ========================== */
@@ -7,20 +6,20 @@ interface BtnProps {
   disabled?: boolean;
   block?: boolean;
   danger?: boolean;
-  htmlType?: "button" | "submit" | "reset";
+  htmlType?: 'button' | 'submit' | 'reset';
   icon?: ReactNode;
   ghost?: boolean;
-  shape?: "circle" | "round" | "default";
+  shape?: 'circle' | 'round' | 'default';
   onClick?: MouseEventHandler<HTMLAnchorElement>;
   loading?: boolean;
   title: string;
-  type?: "default" | "primary" | "link" | "dashed" | "text";
-  size?: "large" | "small" | "middle";
+  type?: 'default' | 'primary' | 'link' | 'dashed' | 'text';
+  size?: 'large' | 'small' | 'middle';
 }
 
 interface InputProps {
   placeholder?: string;
-  label?: string |  ReactNode;
+  label?: string | ReactNode;
   value?: string;
   onChange?: (e: any) => void;
   onPressEnter?: (e: any) => void;
@@ -31,51 +30,47 @@ interface InputProps {
   disabled?: boolean;
   maxLength?: number;
   showCount?: boolean;
-  status?: "error" | "warning";
+  status?: 'error' | 'warning';
   prefix?: ReactNode;
   suffix?: ReactNode;
-  size?: "large" | "middle" | "small";
-  type?: "search" | "password" | "text" | "textarea";
+  size?: 'large' | 'middle' | 'small';
+  type?: 'search' | 'password' | 'text' | 'textarea';
   autoSize?: boolean | { minRows: number; maxRows: number };
   onSearch?: (value: any, e: any) => void;
   loading?: boolean;
   showLabel?: boolean;
   error?: string;
-  labelColor?: "primary" | "secondary";
+  labelColor?: 'primary' | 'secondary';
   required?: boolean;
-  refEl? : RefCallBack
+  refEl?: RefCallBack;
   inputMode?:
-    | "email"
-    | "tel"
-    | "text"
-    | "search"
-    | "none"
-    | "url"
-    | "numeric"
-    | "decimal"
+    | 'email'
+    | 'tel'
+    | 'text'
+    | 'search'
+    | 'none'
+    | 'url'
+    | 'numeric'
+    | 'decimal'
     | undefined;
 }
-
 
 interface IhamburgerProps {
   setHamburger?: Dispatch<SetStateAction<boolean>>;
   hamburger?: boolean;
 }
 
-
 interface ISelectProps {
-  defaultValue? : string | string[] |
-  number | number[] 
-  label?: string |  ReactNode;
-  disabled? : boolean
-  options : { label : string, value }[]
-  placeholder? : string
-  size?: "large" | "middle" | "small";
-  value ?: string | string[] |
-  number | number[] 
+  defaultValue?: string | string[] | number | number[];
+  label?: string | ReactNode;
+  disabled?: boolean;
+  options: { label: string; value }[];
+  placeholder?: string;
+  size?: 'large' | 'middle' | 'small';
+  value?: string | string[] | number | number[];
   onChange?: (e: any) => void;
   showLabel?: boolean;
-  labelColor?: "primary" | "secondary";
+  labelColor?: 'primary' | 'secondary';
 }
 
 /** ===================================================================== */
@@ -83,7 +78,7 @@ interface ISelectProps {
 interface IChoice {
   label: string;
   items: any[];
-  selected : any
+  selected: any;
 }
 
 interface IShipCost {
@@ -92,8 +87,8 @@ interface IShipCost {
 }
 
 interface IDiscountData {
-  min : number;
-  max ?: number;
+  min: number;
+  max?: number;
   price: number;
 }
 
@@ -127,11 +122,11 @@ interface IGalleryProps {
 interface IPurchaseInfoProps {
   shipCosts: IShipCost[];
   paymentMethods: TPaymentMethodImgUrl[];
-  setQuantity : Dispatch<SetStateAction<number>>
+  setQuantity: Dispatch<SetStateAction<number>>;
   othersInfo: {
     deliveryTime: string;
     deliveryZone: string | string[];
-    refunds: "Eligible" | "Not Eligible";
+    refunds: 'Eligible' | 'Not Eligible';
     availability: boolean;
     minOrder: number;
   };
@@ -151,17 +146,15 @@ interface IReviewsProps {
 }
 
 interface IDashboardCardProps {
-  cardName: "turnover" | "profit" | "customers";
+  cardName: 'turnover' | 'profit' | 'customers';
   amount: number;
   pourcentage: {
-    type: "positive" | "negative";
+    type: 'positive' | 'negative';
     value: number;
   };
 }
 
-
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
 
 interface IResponse<IData> {
   message: string;
@@ -177,10 +170,25 @@ interface IUser {
   lastname: string;
   password: string;
   email: string;
+  imageUrl: string;
   phoneNumber: string;
-  roles: string[];
+  roles: mongoose.Types.ObjectId[];
+  shops: mongoose.Types.ObjectId[];
   country: string;
   city: string;
   adress_line1: string;
   adress_line2: string;
+}
+
+interface IShop {
+  id: mongoose.Types.ObjectId;
+  name: string;
+  category: mongoose.Types.ObjectId;
+  description: string;
+  imageUrl: string;
+  gallery: string[];
+  paymentMethods: mongoose.Types.ObjectId[];
+  products: mongoose.Types.ObjectId[];
+  owner: mongoose.Types.ObjectId;
+  status: 'CREATED' | 'PUBLISHED';
 }
